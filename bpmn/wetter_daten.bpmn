@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0npdylh" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.30.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.22.0">
+  <bpmn:process id="wetter_daten_lesen" name="Wetter Daten" isExecutable="false" camunda:historyTimeToLive="1000">
+    <bpmn:startEvent id="StartEvent_1" name="Start Wetter Data">
+      <bpmn:outgoing>Flow_0g671wx</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0g671wx" sourceRef="StartEvent_1" targetRef="Activity_0fwmq8i" />
+    <bpmn:endEvent id="Event_109lod8">
+      <bpmn:incoming>Flow_1ccdp2w</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1ccdp2w" sourceRef="Activity_03w92m9" targetRef="Event_109lod8" />
+    <bpmn:serviceTask id="Activity_03w92m9" name="Wetter auslesen" camunda:type="external" camunda:topic="topicName">
+      <bpmn:incoming>Flow_1pd394r</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ccdp2w</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1pd394r" sourceRef="Activity_0fwmq8i" targetRef="Activity_03w92m9" />
+    <bpmn:userTask id="Activity_0fwmq8i" name="Stadt eingeben" camunda:formRef="city_name" camunda:formRefBinding="latest">
+      <bpmn:incoming>Flow_0g671wx</bpmn:incoming>
+      <bpmn:outgoing>Flow_1pd394r</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="wetter_daten_lesen">
+      <bpmndi:BPMNShape id="Event_109lod8_di" bpmnElement="Event_109lod8">
+        <dc:Bounds x="682" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1fn1jys_di" bpmnElement="Activity_03w92m9">
+        <dc:Bounds x="500" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0317495_di" bpmnElement="Activity_0fwmq8i">
+        <dc:Bounds x="330" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="182" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="159" y="145" width="85" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1ccdp2w_di" bpmnElement="Flow_1ccdp2w">
+        <di:waypoint x="600" y="120" />
+        <di:waypoint x="682" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1pd394r_di" bpmnElement="Flow_1pd394r">
+        <di:waypoint x="430" y="120" />
+        <di:waypoint x="500" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0g671wx_di" bpmnElement="Flow_0g671wx">
+        <di:waypoint x="218" y="120" />
+        <di:waypoint x="330" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

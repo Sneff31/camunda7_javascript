@@ -1,0 +1,24 @@
+{
+  "components": [
+    {
+      "label": "Prozess History",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1x2jwfj",
+        "columns": null
+      },
+      "id": "Field_1nhvkso",
+      "key": "dataMy",
+      "description": "Camunda System Prozess History"
+    }
+  ],
+  "type": "default",
+  "id": "camunda_process_history",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.30.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.22.0",
+  "schemaVersion": 17
+}

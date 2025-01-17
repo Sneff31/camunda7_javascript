@@ -1,0 +1,43 @@
+{
+  "components": [
+    {
+      "label": "City Name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_167gg2e",
+        "columns": null
+      },
+      "id": "Field_0z7cv48",
+      "key": "cityName"
+    },
+    {
+      "label": "Weather Typ",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1komxnz",
+        "columns": null
+      },
+      "id": "Field_0zqcovn",
+      "key": "weatherTyp"
+    },
+    {
+      "label": "Wind Speed",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0z0tf9b",
+        "columns": null
+      },
+      "id": "Field_0vtem1t",
+      "key": "windSpeed"
+    }
+  ],
+  "type": "default",
+  "id": "city-weather-info",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.6.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.30.0"
+  },
+  "schemaVersion": 17
+}
