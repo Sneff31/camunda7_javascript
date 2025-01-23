@@ -1,43 +1,46 @@
 {
   "components": [
     {
-      "label": "City Name",
+      "label": "cityName",
       "type": "textfield",
       "layout": {
-        "row": "Row_167gg2e",
+        "row": "Row_1hwjrwu",
         "columns": null
       },
-      "id": "Field_0z7cv48",
-      "key": "cityName"
+      "id": "Field_0cx4qfn",
+      "key": "cityName",
+      "description": "cityName"
     },
     {
-      "label": "Weather Typ",
+      "label": "weatherTyp",
       "type": "textfield",
       "layout": {
-        "row": "Row_1komxnz",
+        "row": "Row_0bsmw41",
         "columns": null
       },
-      "id": "Field_0zqcovn",
-      "key": "weatherTyp"
+      "id": "Field_1q0rg18",
+      "key": "weatherTyp",
+      "description": "weatherTyp"
     },
     {
-      "label": "Wind Speed",
+      "label": "windSpeed",
       "type": "textfield",
       "layout": {
-        "row": "Row_0z0tf9b",
+        "row": "Row_0pvhu5e",
         "columns": null
       },
-      "id": "Field_0vtem1t",
-      "key": "windSpeed"
+      "id": "Field_1hf29iz",
+      "key": "windSpeed",
+      "description": "windSpeed"
     }
   ],
   "type": "default",
   "id": "city-weather-info",
-  "executionPlatform": "Camunda Cloud",
-  "executionPlatformVersion": "8.6.0",
   "exporter": {
     "name": "Camunda Modeler",
     "version": "5.30.0"
   },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.22.0",
   "schemaVersion": 17
 }

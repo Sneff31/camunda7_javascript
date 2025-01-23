@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0fwphf2" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.30.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.22.0">
+  <bpmn:process id="london-tigger-event" name="London Trigger Event" isExecutable="true" camunda:historyTimeToLive="1000">
+    <bpmn:endEvent id="Event_08td2fl">
+      <bpmn:incoming>Flow_0sazyzj</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1qn56io" sourceRef="StartEvent_1" targetRef="Activity_1o3kpru" />
+    <bpmn:sequenceFlow id="Flow_0sazyzj" sourceRef="Activity_1o3kpru" targetRef="Event_08td2fl" />
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1qn56io</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_1e0d59c" messageRef="Message_0ssa65d" />
+    </bpmn:startEvent>
+    <bpmn:userTask id="Activity_1o3kpru" name="Hello">
+      <bpmn:incoming>Flow_1qn56io</bpmn:incoming>
+      <bpmn:outgoing>Flow_0sazyzj</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmn:message id="Message_0ssa65d" name="londonTrigger" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="london-tigger-event">
+      <bpmndi:BPMNShape id="Event_08td2fl_di" bpmnElement="Event_08td2fl">
+        <dc:Bounds x="462" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_00msvta_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="182" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0nljak9_di" bpmnElement="Activity_1o3kpru">
+        <dc:Bounds x="280" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1qn56io_di" bpmnElement="Flow_1qn56io">
+        <di:waypoint x="218" y="120" />
+        <di:waypoint x="280" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0sazyzj_di" bpmnElement="Flow_0sazyzj">
+        <di:waypoint x="380" y="120" />
+        <di:waypoint x="462" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

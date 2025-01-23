@@ -6,9 +6,12 @@ import { Variables } from "camunda-external-task-client-js";
 //  - 'logger': utility to automatically log important events
 const config = { baseUrl: "http://localhost:8080/engine-rest", use: logger };
 
+// create a Client instance with custom configuration
+const client = new Client(config);
+
 const processVariables = new Variables();
 
-async function fetchData(cityName) {
+async function fetchData(cityName, task, taskService) {
 
     var restApiHistory = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=80c19f3f2d663232fee34ec3f0283dc4";
 
@@ -25,15 +28,15 @@ async function fetchData(cityName) {
       const data = await response.json(); // Wait for the JSON data to be parsed
       processVariables.set("weatherTyp", data.weather[0].main);
       processVariables.set("windSpeed", data.wind.speed);
-      console.log(data.weather.main);  // Handle the fetched data
+      console.log(data.weather[0].main);  // Handle the fetched data
       console.log(data.wind.speed);
     } catch (error) {
+      await taskService.handleBpmnError(task, "errorCityNotFound", "errorCityNotFound");
       console.error('Error with the fetch operation:', error);  // Handle errors
     }
   }
 
-// create a Client instance with custom configuration
-const client = new Client(config);
+
 
 client.subscribe("getWeather", async function({ task, taskService }) {
   // Put your business logic
@@ -43,7 +46,7 @@ client.subscribe("getWeather", async function({ task, taskService }) {
 
   var cityName = task.variables.get("cityName");
 
-  await fetchData(cityName);
+  await fetchData(cityName, task, taskService);
 
   await taskService.complete(task,processVariables);
 });
