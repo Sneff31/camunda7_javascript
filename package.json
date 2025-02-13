@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@camunda8/sdk": "^8.6.21",
     "camunda-external-task-client-js": "^3.1.0"
   }
 }
